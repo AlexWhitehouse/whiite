@@ -1,0 +1,28 @@
+<html lang="en">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tmpar.xyz - A URL Shortener</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- <h1>tmpar.xyz - A URL Shortener</h1> -->
+      <img src="logo3.png" class="logo">
+    </header>
+    <main id="app">
+      <div v-if="error" class="error">
+        {{error}}
+      </div>
+      <form @submit.prevent="createUrl()" class="form">
+        <input class="input" type="text" v-model="url" name="url" id="url" placeholder="enter a url">
+      <!-- <input class="input" type="text" v-model="slug" name="slug" id="slug" placeholder="enter a slug"> -->
+      <button type="submit" class="create">create</button>
+      </form>
+      <div v-if="created">
+      <p class="created">Your short url is: <a :href="created">{{created}}</a></p>
+    </div>
+    </main>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
